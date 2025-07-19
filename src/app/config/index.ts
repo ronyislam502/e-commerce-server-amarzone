@@ -20,9 +20,7 @@ export default {
   sender_app_password: process.env.SENDER_APP_PASS,
   reset_pass_token_expire_in: process.env.RESET_PASS_TOKEN_EXPIRES_IN,
   reset_pass_link: process.env.RESET_PASS_LINK,
-  ssl_store_id: process.env.SSL_STORE_ID,
-  ssl_store_pass: process.env.SSL_STORE_PASS,
-  live_server_url: process.env.SSL_LIVE_URL_SERVER,
-  ssl_payment_api: process.env.SSL_PAYMENT_API,
-  ssl_validation_api: process.env.SSL_VALIDATION_API,
+  stripe_publishable_key: process.env.STRIPE_PUBLISHABLE_KEY,
+  STRIPE_SECRET_key: process.env.STRIPE_SECRET_KEY,
+  STRIPE_webhook_secret: process.env.STRIPE_WEBHOOK_SECRET,
 };

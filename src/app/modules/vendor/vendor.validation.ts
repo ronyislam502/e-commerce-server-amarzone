@@ -4,16 +4,16 @@ export const createAddressValidationSchema = z.object({
   street: z.string({
     invalid_type_error: "street must be string",
   }),
-  city: z.string({
+  house: z.string({
+    invalid_type_error: "house no must be string",
+  }),
+  postalCode: z.string({
     invalid_type_error: "city must be string",
   }),
   state: z.string({
     invalid_type_error: "city must be string",
   }),
-  area: z.string({
-    invalid_type_error: "city must be string",
-  }),
-  postalCode: z.string({
+  city: z.string({
     invalid_type_error: "city must be string",
   }),
   country: z.string({
@@ -35,10 +35,10 @@ const createVendorValidationSchema = z.object({
 
 export const updateAddressValidationSchema = z.object({
   street: z.string().optional(),
-  city: z.string().optional(),
-  state: z.string().optional(),
-  area: z.string().optional(),
+  house: z.string().optional(),
   postalCode: z.string().optional(),
+  state: z.string().optional(),
+  city: z.string().optional(),
   country: z.string().optional(),
 });
 
@@ -48,8 +48,6 @@ const updateVendorValidationSchema = z.object({
     email: z.string().email().optional(),
     phone: z.string().optional(),
     address: updateAddressValidationSchema,
-    shopName: z.string().optional(),
-    description: z.string().optional(),
   }),
 });
 

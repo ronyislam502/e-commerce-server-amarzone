@@ -6,6 +6,8 @@ export type TAdmin = {
   email: string;
   avatar?: string;
   phone: string;
+  isShopped: boolean;
+  isCreateProduct: boolean;
   isDeleted: boolean;
 };
 

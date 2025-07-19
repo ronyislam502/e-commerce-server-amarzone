@@ -20,7 +20,6 @@ const addShopProductBySellerFromDB = async (
   }
 
   const isShopExists = isVendor.isShopped;
-  console.log(isShopExists);
 
   if (!isShopExists) {
     throw new AppError(
@@ -56,9 +55,10 @@ const addShopProductBySellerFromDB = async (
     asin: isProduct.asin,
     seller: {
       shop: isVendorShopped._id,
-      price: payload.seller.price,
-      quantity: payload.seller.quantity,
+      price: payload?.seller?.price,
+      quantity: payload?.seller?.quantity,
       isStock: payload?.seller?.isStock ?? true,
+      fullFilmentBy: isVendorShopped?.shopName,
       shippingTime: payload?.seller?.shippingTime,
       deliveryTime: deliveryTime,
     },

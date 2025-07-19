@@ -11,24 +11,24 @@ const router = express.Router();
 
 router.post(
   "/create-admin",
-  // multerUpload.single("image"),
-  // parseBody,
+  multerUpload.single("image"),
+  parseBody,
   validateRequest(AdminValidations.createAdminValidationSchema),
   UserControllers.createAdmin
 );
 
 router.post(
   "/create-vendor",
-  // multerUpload.single("image"),
-  // parseBody,
+  multerUpload.single("image"),
+  parseBody,
   validateRequest(VendorValidations.createVendorValidationSchema),
   UserControllers.createVendor
 );
 
 router.post(
   "/create-customer",
-  // multerUpload.single("image"),
-  // parseBody,
+  multerUpload.single("image"),
+  parseBody,
   validateRequest(CustomerValidations.createCustomerValidationSchema),
   UserControllers.createCustomer
 );

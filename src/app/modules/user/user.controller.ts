@@ -22,7 +22,11 @@ const createAdmin = catchAsync(async (req, res) => {
 
 const createVendor = catchAsync(async (req, res) => {
   const { password, vendor } = req.body;
-  const result = await UserServices.createVendorIntoDB(password, vendor);
+  const result = await UserServices.createVendorIntoDB(
+    req.file as TImageFile,
+    password,
+    vendor
+  );
 
   sendResponse(res, {
     statusCode: httpStatus.OK,
@@ -34,7 +38,11 @@ const createVendor = catchAsync(async (req, res) => {
 
 const createCustomer = catchAsync(async (req, res) => {
   const { password, customer } = req.body;
-  const result = await UserServices.createCustomerIntoDB(password, customer);
+  const result = await UserServices.createCustomerIntoDB(
+    req.file as TImageFile,
+    password,
+    customer
+  );
 
   sendResponse(res, {
     statusCode: httpStatus.OK,

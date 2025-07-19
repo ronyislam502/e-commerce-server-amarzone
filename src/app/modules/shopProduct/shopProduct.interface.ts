@@ -5,6 +5,7 @@ export type TSeller = {
   price: number;
   quantity: number;
   isStock: boolean;
+  fullFilmentBy: string;
   shippingTime: number;
   deliveryTime?: number;
   isBuyBoxWinner?: boolean;

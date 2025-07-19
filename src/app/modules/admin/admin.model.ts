@@ -31,6 +31,14 @@ const adminSchema = new Schema<TAdmin, AdminModel>(
       type: String,
       required: [true, "Phone is required"],
     },
+    isShopped: {
+      type: Boolean,
+      default: false,
+    },
+    isCreateProduct: {
+      type: Boolean,
+      default: true,
+    },
     isDeleted: {
       type: Boolean,
       default: false,

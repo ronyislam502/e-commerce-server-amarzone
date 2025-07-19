@@ -59,7 +59,11 @@ const createAdminIntoDB = async (
   }
 };
 
-const createVendorIntoDB = async (password: string, payload: TVendor) => {
+const createVendorIntoDB = async (
+  image: TImageFile,
+  password: string,
+  payload: TVendor
+) => {
   const userData: Partial<TUser> = {
     name: payload?.name,
     email: payload?.email,
@@ -71,6 +75,10 @@ const createVendorIntoDB = async (password: string, payload: TVendor) => {
 
   try {
     session.startTransaction();
+
+    if (image && image.path) {
+      payload.avatar = image.path;
+    }
 
     // 1. Create user
     const newUser = await User.create([userData], { session });
@@ -89,6 +97,8 @@ const createVendorIntoDB = async (password: string, payload: TVendor) => {
     await session.commitTransaction();
     await session.endSession();
 
+    console.log(newVendor);
+
     return newVendor;
   } catch (error: any) {
     await session.abortTransaction();
@@ -97,7 +107,11 @@ const createVendorIntoDB = async (password: string, payload: TVendor) => {
   }
 };
 
-const createCustomerIntoDB = async (password: string, payload: TCustomer) => {
+const createCustomerIntoDB = async (
+  image: TImageFile,
+  password: string,
+  payload: TCustomer
+) => {
   const userData: Partial<TUser> = {
     name: payload.name,
     email: payload.email,
@@ -109,9 +123,9 @@ const createCustomerIntoDB = async (password: string, payload: TCustomer) => {
 
   try {
     session.startTransaction();
-    // if (image && image.path) {
-    //   payload.avatar = image.path;
-    // }
+    if (image && image.path) {
+      payload.avatar = image.path;
+    }
 
     const newUser = await User.create([userData], { session });
 

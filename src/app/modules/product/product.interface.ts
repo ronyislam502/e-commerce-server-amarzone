@@ -1,6 +1,5 @@
 import { Types } from "mongoose";
 import { USER_ROLE } from "./../user/user.const";
-import { TSeller } from "../shopProduct/shopProduct.interface";
 
 export type TCreatedBy = {
   role: keyof typeof USER_ROLE;

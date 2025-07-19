@@ -2,3 +2,4 @@ node_modules
 dist
 .env
 
+# git remote add origin https://github.com/ronyislam502/e-commerce-server-amarzone.git

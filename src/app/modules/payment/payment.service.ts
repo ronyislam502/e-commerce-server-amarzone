@@ -1,11 +1,10 @@
 import httpStatus from "http-status";
+import Stripe from "stripe";
 import AppError from "../../errors/AppError";
 import { Order } from "../order/order.model";
-import { PAYMENT_STATUS } from "../order/order.interface";
-import { initialPayment, validatePayment } from "./payment.utilities";
 import { Payment } from "./payment.model";
 import mongoose from "mongoose";
-import { populate } from "dotenv";
+import { PAYMENT_STATUS } from "../../interface/common";
 
 const paymentSuccessIntoDB = async (orderId: string) => {
   const isOrder = await Order.findById(orderId);
@@ -22,9 +21,7 @@ const paymentSuccessIntoDB = async (orderId: string) => {
     status: PAYMENT_STATUS.PENDING,
   };
 
-  const result = await initialPayment(paymentData);
-
-  return result;
+  return paymentData;
 };
 
 const validatePaymentFromDB = async (payload: any) => {

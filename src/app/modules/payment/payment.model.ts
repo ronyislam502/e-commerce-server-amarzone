@@ -1,6 +1,6 @@
 import { model, Schema } from "mongoose";
 import { TPayment } from "./payment.interface";
-import { PAYMENT_STATUS } from "../order/order.interface";
+import { PAYMENT_STATUS } from "../../interface/common";
 
 const PaymentSchema = new Schema<TPayment>(
   {

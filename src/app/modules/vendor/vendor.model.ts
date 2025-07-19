@@ -10,19 +10,7 @@ export const addressSchema = new Schema<TAddress>({
     type: String,
     required: true,
   },
-  sector: {
-    type: String,
-    required: true,
-  },
-  area: {
-    type: String,
-    required: true,
-  },
   postalCode: {
-    type: String,
-    required: true,
-  },
-  district: {
     type: String,
     required: true,
   },

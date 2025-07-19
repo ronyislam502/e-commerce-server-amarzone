@@ -4,6 +4,7 @@ import { TShop } from "./shop.interface";
 import { Shop } from "./shop.model";
 import QueryBuilder from "../../builder/queryBuilder";
 import { Vendor } from "./../vendor/vendor.model";
+import { ShopHealthServices } from "../health/health.service";
 
 const createShopIntoDB = async (payload: TShop) => {
   const isVendor = await Vendor.findById(payload?.vendor);
@@ -17,7 +18,10 @@ const createShopIntoDB = async (payload: TShop) => {
     throw new AppError(httpStatus.BAD_REQUEST, "already created shop!");
   }
   const result = await Shop.create(payload);
+  const shopId = result._id.toString();
+
   await Vendor.findByIdAndUpdate(isVendor.id, { isShopped: true });
+  await ShopHealthServices.createAccountHealth(shopId);
 
   return result;
 };

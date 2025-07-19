@@ -4,23 +4,28 @@ import { TSeller, TShopProduct } from "./shopProduct.interface";
 const SellerSchema = new Schema<TSeller>({
   shop: {
     type: Schema.Types.ObjectId,
+    required: [true, " shop is required"],
     ref: "Shop",
   },
   price: {
     type: Number,
-    required: true,
+    required: [true, "price is required"],
   },
   quantity: {
     type: Number,
-    required: true,
+    required: [true, "quantity is required"],
   },
   isStock: {
     type: Boolean,
     default: true,
   },
+  fullFilmentBy: {
+    type: String,
+    required: [true, "fullFilmentBy is required"],
+  },
   shippingTime: {
     type: Number,
-    required: true,
+    required: [true, "shippingTime is required"],
   },
   deliveryTime: {
     type: Number,

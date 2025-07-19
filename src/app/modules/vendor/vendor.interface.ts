@@ -1,12 +1,21 @@
 import { Model, Types } from "mongoose";
 
+// export type TAddress = {
+//   street: string;
+//   house: string;
+//   sector: string;
+//   area: string;
+//   postalCode: string;
+//   district: string;
+//   state: string;
+//   city: string;
+//   country: string;
+// };
+
 export type TAddress = {
   street: string;
   house: string;
-  sector: string;
-  area: string;
   postalCode: string;
-  district: string;
   state: string;
   city: string;
   country: string;

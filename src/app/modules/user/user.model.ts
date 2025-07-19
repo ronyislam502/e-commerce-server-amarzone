@@ -35,10 +35,6 @@ const userSchema = new Schema<TUser, UserModel>(
       enum: Object.keys(USER_STATUS),
       default: USER_STATUS.ACTIVE,
     },
-    needsPasswordChange: {
-      type: Boolean,
-      default: true,
-    },
     passwordChangedAt: {
       type: Date,
     },
